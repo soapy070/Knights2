@@ -93,33 +93,33 @@ def menu(knights, weapons):
             create_knight(knights)
                 
 # Print out the Knight that was made
-        print("\n--- Your Knight ---\n")
-        print("Knight's name:  " + str(knights[knights_number][0] + "\n"))
-        knights_number += 1
-                        
-        elif select == 2:
-        if len(knights) == 0:
-                print("You need to create a knight first!! \n")
-            
-        else:
-                select_knight(knights)
-                           
-        elif select == 3:
-        create_weapon(weapons)
+            print("\n--- Your Knight ---\n")
+            print("Knight's name:  " + str(knights[knights_number][0] + "\n"))
+            knights_number += 1
+                            
+            if select == 2:
+                if len(knights) == 0:
+                    print("You need to create a knight first!! \n")
+                
+            else:
+                    select_knight(knights)
+                                
+            if select == 3:
+                create_weapon(weapons)
         
 # Print out the weapon that was made
         print("\n--- Your Weapon ---\n")
         print(f"Weapon's name: {str(weapons[0][0])}\n")
         
-        elif select == 4:
-        if len(weapons) == 0:
-            print("You need to create a weapon first!! \n")
+        if select == 4:
+            if len(weapons) == 0:
+                print("You need to create a weapon first!! \n")
             
         else:
             select_weapon(weapons)
             
-        elif select == 0:
-        print("--- All your Knights ---\n")
+        if select == 0:
+            print("--- All your Knights ---\n")
 # Reset the knights number, to count all the knights
         knights_number = 0
         while knights_number < len(knights):
@@ -129,7 +129,7 @@ def menu(knights, weapons):
                     print(f"Wait... You have no knights! Have a number: {random.randint(0,100)}\n")
         else:
                     print("\n")
-        except:
+                    except:
         print("--- Try again! ---\n")
         
 # Required for catching an integer
