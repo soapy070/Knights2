@@ -129,7 +129,7 @@ def menu(knights, weapons):
                     print(f"Wait... You have no knights! Have a number: {random.randint(0,100)}\n")
         else:
                     print("\n")
-                    except:
+        except:
         print("--- Try again! ---\n")
         
 # Required for catching an integer
