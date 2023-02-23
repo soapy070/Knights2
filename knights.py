@@ -91,20 +91,22 @@ def menu(knights, weapons):
 # Create a new knight
         if select == 1:
             create_knight(knights)
-                
+        except:
+        print("--- Try again! ---\n")
+           
 # Print out the Knight that was made
-            print("\n--- Your Knight ---\n")
-            print("Knight's name:  " + str(knights[knights_number][0] + "\n"))
-            knights_number += 1
+        print("\n--- Your Knight ---\n")
+        print("Knight's name:  " + str(knights[knights_number][0] + "\n"))
+        knights_number += 1
                             
-            if select == 2:
+        if select == 2:
                 if len(knights) == 0:
                     print("You need to create a knight first!! \n")
                 
-            else:
+        else:
                     select_knight(knights)
                                 
-            if select == 3:
+        if select == 3:
                 create_weapon(weapons)
         
 # Print out the weapon that was made
