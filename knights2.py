@@ -1,4 +1,3 @@
-if name == "main":
     import random
 
 # Call for this when you want to create a new knight
