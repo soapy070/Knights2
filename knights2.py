@@ -1,3 +1,9 @@
+'''Please mark this file. After numerous hours going through the code with peers, researching the
+various issues/poss fixes on google and contacting Travis as to how I couldnt fix an error
+I re-wrote the code from knights.py to this file. Doing this resolved most of the errors and enabled
+the program to run without any errors.'''
+
+
 import random
 
 def create_knight(knights):
@@ -92,12 +98,26 @@ def menu(knights, weapons):
                 knights_number = 0
                 while knights_number < len(knights):
                     print(f"{knights_number + 1} - Knight's name: {knights[knights_number][0]}")
+                    knights_number += 1
                 if len(knights) == 0:
                     print(f"Wait... You have no knights! Have a number: {random.randint(0,100)}\n")
                 else:
                     print("\n")
+
+                # Display the list of weapons
+                print("--- All your Weapons ---\n")
+                weapons_number = 0
+                while weapons_number < len(weapons):
+                    print(f"{weapons_number + 1} - Weapon's name: {weapons[weapons_number][0]}")
+                    weapons_number += 1
+                if len(weapons) == 0:
+                    print("You have no weapons!")
+                else:
+                    print("\n")
+
+                # Clear the knights list and reset the weapons list
                 knights.clear()
-                weapons.clear()
+                weapons = []
                 break
             else:
                 print("--- Invalid input, try again! ---")
