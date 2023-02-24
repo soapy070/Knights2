@@ -1,18 +1,20 @@
-import random
+if name == "main":
+    import random
+
+
+    
 
 # Call for this when you want to create a new knight
 def create_knight(knights):
-    print("Let's create a knight!")
-    knight_name = input("What is the knight's name: ")
-    knights_data = [knight_name]
-    knights.append(knights_data)
+        print("Let's create a knight!")
+        knight_name = input("What is the knight's name: ")
+        knights.append([knight_name])
 
 # Call for this when you want to create a new weapon
 def create_weapon(weapons):
     print("Let's create a weapon!")
     weapon_name = input("What is the weapon: ")
-    weapons_data = [weapon_name]
-    weapons.append(weapons_data)
+    weapons.append([weapon_name])
 
 # Call a knight and change their data
 def change_knight_data(knights):
@@ -48,7 +50,6 @@ def change_weapon_data(weapons):
         print("--- Try Again! ---")
         change_weapon_data(weapons)
 
-# Show the current knights and select one
 def select_knight(knights):
     if len(knights) == 0:
         print("You need to create a knight first!! \n")
@@ -73,6 +74,7 @@ def select_weapon(weapons):
 
 # This is the menu and we make our selections here
 def menu(knights, weapons):
+    knights_number = 0
     while True:
         # Print the display options
         print("What do you want to do?")
@@ -87,65 +89,47 @@ def menu(knights, weapons):
             select = input("Selection number: ")
             select = int(select)
             print()
-# Create a new knight
             if select == 1:
                 create_knight(knights)
-        except:
-            print("--- Try again! ---\n")
-           
-# Print out the Knight that was made
-            print("\n--- Your Knight ---\n")
-            print("Knight's name:  " + str(knights[knights_number][0] + "\n"))
-            knights_number += 1
-                            
-            if select == 2:
+                print("\n--- Your Knight ---\n")
+                print("Knight's name:  " + str(knights[knights_number][0]) + "\n")
+                knights_number += 1
+            elif select == 2:
                 if len(knights) == 0:
                     print("You need to create a knight first!! \n")
-                
-            else:
+                else:
                     select_knight(knights)
-                                
-            if select == 3:
+            elif select == 3:
                 create_weapon(weapons)
-        
-# Print out the weapon that was made
-            print("\n--- Your Weapon ---\n")
-            print(f"Weapon's name: {str(weapons[0][0])}\n")
-        
-            if select == 4:
+                print("\n--- Your Weapon ---\n")
+                print(f"Weapon's name: {str(weapons[0][0])}\n")
+            elif select == 4:
                 if len(weapons) == 0:
                     print("You need to create a weapon first!! \n")
-            
-            else:
-                select_weapon(weapons)
-            
-            if select == 0:
+                else:
+                    select_weapon(weapons)
+            elif select == 0:
                 print("--- All your Knights ---\n")
-# Reset the knights number, to count all the knights
-            knights_number = 0
-            while knights_number < len(knights):
+                knights_number = 0
+                while knights_number < len(knights):
                     print(f"{knights_number + 1} - Knight's name: {knights[knights_number][0]}")
                     knights_number += 1
-            if len(knights) == 0:
+                if len(knights) == 0:
                     print(f"Wait... You have no knights! Have a number: {random.randint(0,100)}\n")
-            else:
+                else:
                     print("\n")
+                knights = []
+                weapons = []
+                break
+            else:
+                print("--- Try again! ---\n")
         except:
             print("--- Try again! ---\n")
-        
-# Required for catching an integer
-            try:
-                    knights_number = 0
-                    knights = []
-                                  
-            except:
-                print("--- Try again! ---\n")
-                menu(knights, weapons)
+        finally:
+            print("--- Try again! ---\n")
+#Setting the scene
+knights = []
+weapons = []
 
-# Setting the scene
-            knights_number = 0
-            knights = []
-            weapons = []
-
-# Run the program
-        menu(knights, weapons)
+#Run the program
+menu(knights, weapons)
