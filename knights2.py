@@ -1,9 +1,6 @@
 if name == "main":
     import random
 
-
-    
-
 # Call for this when you want to create a new knight
 def create_knight(knights):
         print("Let's create a knight!")
